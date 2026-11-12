@@ -6,6 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Full rules in `CONTRIBUTING.md`; the ones that matter on every task:
 
+- **Work only in the fork `pturner1989/rouchdb` (`origin`).** It is a fork of `rubylab-app/rouchdb`; **never push to, open PRs or issues against, comment on, or merge anything in `rubylab-app/rouchdb` (upstream)**, even if asked to "open a PR" or "merge to main": those always mean the fork. Pass `--repo pturner1989/rouchdb` to every `gh` command and never add `rubylab-app/rouchdb` as a push remote. Pulling upstream changes into the fork is fine only when explicitly asked.
 - **Planning docs go in `dev/<topic>/`** (`prd.md`, `spec.md`, `plan.md`, `tasks.md`; templates in `dev/_templates/`, conventions in `dev/README.md`). Never put PRDs, specs, plans or task lists anywhere else.
 - **Branch for every feature or bug fix**: never commit them to `main`. Branch name `<type>/<topic>` (e.g. `fix/replication-checkpoint-reset`), same `<topic>` as its `dev/` directory. Changes land via squash-merged PRs.
 - **Conventional Commits**: `<type>(<scope>)!: <summary>`, types `feat fix docs test refactor perf build ci bench chore`; breaking changes get `!` plus a `BREAKING CHANGE:` footer; the body explains why.
