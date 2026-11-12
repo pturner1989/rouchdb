@@ -1,6 +1,5 @@
 /target
 /.idea
-/docs/plans
 /docs/book/book
 /crates/rouchdb-server/fauxton/*
 !/crates/rouchdb-server/fauxton/.gitkeep
