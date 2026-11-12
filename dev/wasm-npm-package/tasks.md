@@ -2,7 +2,7 @@
 topic: wasm-npm-package
 status: draft
 branch: feat/wasm-npm-package
-prs: []
+prs: [3]
 updated: 2026-11-12
 ---
 
