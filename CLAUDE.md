@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working Standards (read first)
+
+Full rules in `CONTRIBUTING.md`; the ones that matter on every task:
+
+- **Planning docs go in `dev/<topic>/`** (`prd.md`, `spec.md`, `plan.md`, `tasks.md`; templates in `dev/_templates/`, conventions in `dev/README.md`). Never put PRDs, specs, plans or task lists anywhere else.
+- **Branch for every feature or bug fix**: never commit them to `main`. Branch name `<type>/<topic>` (e.g. `fix/replication-checkpoint-reset`), same `<topic>` as its `dev/` directory. Changes land via squash-merged PRs.
+- **Conventional Commits**: `<type>(<scope>)!: <summary>`, types `feat fix docs test refactor perf build ci bench chore`; breaking changes get `!` plus a `BREAKING CHANGE:` footer; the body explains why.
+- **Same PR**: tests (a failing-first test for every bug fix), `CHANGELOG.md` `[Unreleased]` entry, docs (`docs/book/src/`, `es/` translations, README doctests).
+- **Before a PR**: `cargo fmt --all -- --check`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo test --workspace`, plus `bash scripts/test-couchdb.sh` for CouchDB-facing changes.
+- **CouchDB 3.5.1 is the reference** for behaviour; match it or document the divergence.
+
 ## What This Is
 
 RouchDB is a local-first document database in Rust — the Rust equivalent of PouchDB. It stores JSON documents locally (in-memory or on disk via redb) and replicates bidirectionally with CouchDB using the standard replication protocol. No system libraries required: pure-Rust storage (redb) and rustls for HTTPS by default (`native-tls` / `rustls-tls-native-roots` are opt-in features).
